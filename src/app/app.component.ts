@@ -10,18 +10,18 @@ export class AppComponent {
   shake: boolean;
   images: any = [
     {
+      id: 'animal',
       name: 'doguinho',
-      type: 'animal',
       path: 'assets/dog.png',
     },
     {
+      id: 'fruit',
       name: 'frutinha',
-      type: 'fruit',
       path: 'assets/banana.png',
     },
     {
+      id: 'animal',
       name: 'doguinho2',
-      type: 'animal',
       path: 'assets/sog2.jpg',
     },
   ];
@@ -46,7 +46,7 @@ export class AppComponent {
 
     /* Get the current image dragged */
     const foundImage = this.images.find(
-      (item: any) => item.type === this.currentImageId
+      (item: any) => item.id === this.currentImageId
     );
 
     /* Elements that already in selected box */
@@ -55,7 +55,7 @@ export class AppComponent {
     );
 
     /* If target has invalid, shake selected box */
-    if (target.id !== foundImage.type) {
+    if (target.id !== foundImage.id) {
       elementsAlreadyInList.forEach((element) => {
         this.makesShake(element as HTMLElement);
       });
@@ -64,7 +64,7 @@ export class AppComponent {
     }
 
     target.appendChild(
-      document.getElementById(foundImage.type) as HTMLImageElement
+      document.getElementById(foundImage.id) as HTMLImageElement
     );
   }
 

@@ -4,7 +4,7 @@
       *ngFor="let image of images"
       (dragstart)="drag($event)"
       [src]="image.path"
-      [id]="image.type"
+      [id]="image.id"
       [name]="image.name"
       draggable="true"
       width="300"
